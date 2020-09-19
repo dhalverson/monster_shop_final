@@ -19,4 +19,5 @@ Users: Belongs to a merchant, has many orders
 Discount, one to many table
 
 
-1. As a merchant, I can add a percentage discount to my items
+1. As a merchant, I can click a link that will take me to all my discounts show page.
+2. When I visit /merchant/discounts, I see two discounts, 20% and 30%. In order to hit 20 I have to have 5 or more items. In order to hit 30,  I have to have 10 or more items.
