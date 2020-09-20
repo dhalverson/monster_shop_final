@@ -16,11 +16,11 @@ RSpec.describe "As a merchant employee" do
   end
 
   it 'From the discounts index page, each discount is a link to their show page' do
-    visit('/merchants')
+    visit('/merchant')
     click_link('My Discounts')
-    click_link()
-
+    click_link('20% off')
+    expect(current_path).to eq("/merchant/discounts/#{@discount_1.id}")
+    expect(page).to have_content(@discount_1.discount)
+    expect(page).to have_content(@discount_1.item_quantity)
   end
-
-
 end
