@@ -39,7 +39,12 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :new, :create, :edit, :update, :destroy]
     put '/items/:id/change_status', to: 'items#change_status'
     get '/orders/:id/fulfill/:order_item_id', to: 'orders#fulfill'
+    get '/discounts', to: 'discounts#index'
+    get '/discounts/:id', to: 'discounts#show'
+    get '/discounts/:id/edit', to: 'discounts#edit'
+    patch '/discounts/:id', to: 'discounts#update'
   end
+
 
   namespace :admin do
     get '/', to: 'dashboard#index', as: :dashboard
@@ -47,4 +52,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show]
     patch '/orders/:id/ship', to: 'orders#ship'
   end
+
+
+
 end
