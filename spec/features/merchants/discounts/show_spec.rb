@@ -23,4 +23,34 @@ RSpec.describe "As a merchant employee" do
     expect(page).to have_content(@discount_1.discount)
     expect(page).to have_content(@discount_1.item_quantity)
   end
+
+  it 'I see a link to update a discounts information, I click that link, and it takes me to a discounts edit page where the form is populated with the existing information' do
+    visit("/merchant/discounts/#{@discount_1.id}")
+    expect(page).to have_link('Edit Discount')
+
+    click_link('Edit Discount')
+    expect(current_path).to eq("/merchant/discounts/#{@discount_1.id}/edit")
+    expect(find_field(:discount).value.to_i).to eq(@discount_1.discount)
+    expect(find_field(:item_quantity).value.to_i).to eq(@discount_1.item_quantity)
+  end
+
+  it 'I see an error if I dont include all the fields when I submit' do
+    visit("/merchant/discounts/#{@discount_1.id}/edit")
+    fill_in :discount, with: 25
+    fill_in :item_quantity, with: ''
+
+    click_button('Update Discount')
+    expect(page).to have_content("Item quantity can't be blank and Item quantity is not a number")
+  end
+
+  it 'I fully complete the form, click submit, and I am taken back to that discounts show page and see the updated information' do
+    visit("/merchant/discounts/#{@discount_1.id}/edit")
+    fill_in :discount, with: 25
+    fill_in :item_quantity, with: 10
+
+    click_button('Update Discount')
+    expect(current_path).to eq("/merchant/discounts/#{@discount_1.id}")
+    expect(page).to have_content('Discount: 25%')
+    expect(page).to have_content('Discount Items Required: 10')
+  end
 end
