@@ -41,7 +41,10 @@ Rails.application.routes.draw do
     get '/orders/:id/fulfill/:order_item_id', to: 'orders#fulfill'
     get '/discounts', to: 'discounts#index'
     get '/discounts/:id', to: 'discounts#show'
+    get '/discounts/:id/edit', to: 'discounts#edit'
+    patch '/discounts/:id', to: 'discounts#update'
   end
+
 
   namespace :admin do
     get '/', to: 'dashboard#index', as: :dashboard
