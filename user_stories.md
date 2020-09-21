@@ -21,3 +21,6 @@ Discount, one to many table
 
 1. As a merchant, I can click a link that will take me to all my discounts show page.
 2. When I visit /merchant/discounts, I see two discounts, 20% and 30%. In order to hit 20 I have to have 5 or more items. In order to hit 30,  I have to have 10 or more items.
+3. The ability to create a new discount, from the merchant discounts
+4. The ability to delete a discount
+5. The ability to update an existing discount
