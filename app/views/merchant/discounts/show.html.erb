@@ -1,3 +1,6 @@
 <h1>Discount <%= @discount.discount %>% Off</h1>
+
 <p>Discount: <%= @discount.discount %>%</p>
 <p>Discount Items Required: <%= @discount.item_quantity %></p>
+
+<%= link_to "Edit Discount", "/merchant/discounts/#{@discount.id}/edit" %>
