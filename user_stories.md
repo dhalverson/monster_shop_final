@@ -20,7 +20,26 @@ Discount, one to many table
 
 
 1. As a merchant, I can click a link that will take me to all my discounts show page.
+
 2. When I visit /merchant/discounts, I see two discounts, 20% and 30%. In order to hit 20 I have to have 5 or more items. In order to hit 30,  I have to have 10 or more items.
+
 3. The ability to create a new discount, from the merchant discounts
+
 4. The ability to delete a discount
+
 5. The ability to update an existing discount
+
+IT2 User Stories
+
+1. You will implement a percentage based discount:
+  As a user, when I add any item to my cart, and proceed to checkout, I see a discount applied. The discount is shown in the cart, and the price is reflected in the subtotal
+
+2. Next, your discount method is updated so it only occurs after a threshold of the same item is reached. 5% discount on 20 or more items. Once I to or over this threshold, the discount applies.
+
+3. Add items from two different merchants to your cart, exceeding the discount quantity. Verify that the discount only applies to items from the merchant with that discount.
+
+4. Add multiple items, under the discount threshold from the same merchant, and verify the discount does not apply.
+
+5. When there is a conflict between two discounts, the greater will apply. Add a lesser quantity, verify the discount, and then increase the quantity and verify the discount updates and is the higher of the two.
+
+6. Final discounted price should show on the order show page.
