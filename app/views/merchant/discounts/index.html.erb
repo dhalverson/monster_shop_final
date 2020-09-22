@@ -1,5 +1,6 @@
 <h1>All Discounts</h1>
 
+<%= link_to 'New Discount', "/merchant/discounts/new" %>
 <ol>
 <% @discounts.each do |discount| %>
   <section id='discount-<% discount.id %>'>

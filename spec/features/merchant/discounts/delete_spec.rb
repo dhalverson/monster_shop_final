@@ -15,18 +15,17 @@ RSpec.describe "As a merchant employee" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@merchant_user)
   end
 
-  it 'I can click a button to take me to my discounts index page' do
-    visit '/merchant'
-    click_link('My Discounts')
-    expect(current_path).to eq("/merchant/discounts")
+  it 'From a discounts show page, I see a link to delete a discount' do
+    visit("/merchant/discounts/#{@discount_1.id}")
+    expect(page).to have_link('Delete Discount')
+
   end
 
-  it 'My discounts index page shows all my current discounts, including their percentage and quantity required' do
-    visit '/merchant'
-    click_link('My Discounts')
-    @merchant_user.merchant.discounts.each do |discount|
-      expect(page).to have_content(discount.discount)
-      expect(page).to have_content(discount.item_quantity)
-    end
+  it 'When I click delete discount, I am taken back to the discounts index where I no longer see this discount' do
+    visit("/merchant/discounts/#{@discount_1.id}")
+    click_link('Delete Discount')
+    expect(current_path).to eq('/merchant/discounts')
+    expect(page).to_not have_content("#{@discount_1.discount}")
+    expect(page).to_not have_content("#{@discount_1.item_quantity}")
   end
 end
