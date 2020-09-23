@@ -27,10 +27,44 @@ RSpec.describe "As a merchant employee" do
     click_link('My Discounts')
     click_link('20% off')
     expect(current_path).to eq("/merchant/discounts/#{@discount_1.id}")
-
     @megan.discounts.each do |discount|
-      expect(page).to have_content(discount.discount)
-      expect(page).to have_content(discount.item_quantity)
+      expect(page).to have_content("#{@discount_1.discount}")
+      expect(page).to have_content("#{@discount_1.item_quantity}")
     end
+  end
+
+  it 'I see a link to create a new discount' do
+    visit('/merchant')
+    click_link('My Discounts')
+    expect(current_path).to eq('/merchant/discounts')
+    expect(page).to have_link('New Discount')
+  end
+
+  it 'I click new discount and am taken to a form to create a new discount' do
+    visit('/merchant/discounts')
+    click_link('New Discount')
+    expect(current_path).to eq('/merchant/discounts/new')
+  end
+
+  it 'If I dont fill out all the fields' do
+    visit('/merchant/discounts')
+    click_link('New Discount')
+
+    fill_in :discount, with: 25
+    click_button('Save Discount')
+
+    expect(page).to have_content("Item quantity can't be blank and Item quantity is not a number")
+  end
+
+  it 'I fill out all the fields, click save, I am redirected to the index page and see my new discount' do
+    visit('/merchant/discounts')
+    click_link('New Discount')
+
+    fill_in :discount, with: 25
+    fill_in :item_quantity, with: 15
+    click_button('Save Discount')
+
+    expect(page).to have_content('Success, a new discount has been added!')
+    expect(current_path).to eq('/merchant/discounts')
   end
 end
