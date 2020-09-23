@@ -9,6 +9,7 @@ Only a merchant admin can access a merchant's discounts. Currently the only way 
 
 ## Heroku
 
+https://halverson-monster-shop.herokuapp.com/items
 
 
 #### General Goals
@@ -28,4 +29,10 @@ I would like to implement, if I had more time:
 - Database relationships and migrations
 - ActiveRecord
 - Software Testing
+
+### Users
+
+Daniel Halverson
+https://github.com/dhalverson
+https://www.linkedin.com/in/daniel-halverson/
 
