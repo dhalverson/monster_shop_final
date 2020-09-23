@@ -38,13 +38,6 @@ RSpec.describe Item do
       expect(@ogre.average_rating.round(2)).to eq(3.00)
     end
 
-    it 'minimum discount quantity' do
-      discount_1 = @megan.discounts.create!(discount: 10, item_quantity: 2)
-      discount_2 = @megan.discounts.create!(discount: 20, item_quantity: 5)
-
-      expect(@ogre.minimum_discount_quantity).to eq(2)
-    end
-
     it 'highest discount()' do
       discount_1 = @megan.discounts.create!(discount: 10, item_quantity: 2)
       discount_2 = @megan.discounts.create!(discount: 20, item_quantity: 5)
