@@ -34,7 +34,13 @@ IT2 User Stories
 1. You will implement a percentage based discount:
   As a user, when I add any item to my cart, and proceed to checkout, I see a discount applied. The discount is shown in the cart, and the price is reflected in the subtotal
 
-2. Next, your discount method is updated so it only occurs after a threshold of the same item is reached. 5% discount on 20 or more items. Once I to or over this threshold, the discount applies.
+2. Next, your discount method is updated so it only occurs after a threshold of the same item is reached. 10% discount on 2 or more items. Once I meet or exceed this threshold, the discount applies. Once I exceed 5 of the same item, a 20% discount is applied. I see the discount reflected in the total, as well as a discount dollar amount listed. Other items from other merchants are not affected by this discount.
+
+
+
+
+
+
 
 3. Add items from two different merchants to your cart, exceeding the discount quantity. Verify that the discount only applies to items from the merchant with that discount.
 
@@ -43,3 +49,24 @@ IT2 User Stories
 5. When there is a conflict between two discounts, the greater will apply. Add a lesser quantity, verify the discount, and then increase the quantity and verify the discount updates and is the higher of the two.
 
 6. Final discounted price should show on the order show page.
+
+
+
+
+
+
+
+
+
+methods
+- eligible discount for that item, meets quantity
+- compare subtotals of items, and return the lowest(highest discount)
+- logic to apply discount to only items in the cart who's id's match an item.merchant that has a discount. filter
+
+
+
+default discount
+once hits threshold, then apply new discount
+max_discount
+
+comparing subtotals using subtotal_of
