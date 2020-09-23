@@ -1,4 +1,3 @@
-
 # Monster Shop Extensions - Bulk Discount
 
 
