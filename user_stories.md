@@ -1,12 +1,30 @@
 1. Merchants need full CRUD functionality on bulk discounts, and will be accessed a link on the merchant's dashboard.
+  - Create new discount
+  - View all discounts
+  - Update an existing discount
+  - Delete an existing discount
+
 1. You will implement a percentage based discount:
-   - 5% discount on 20 or more items
+   - 10% discount on 2 or more items
+   - 20% discount of 5 or more items
+   
 1. A merchant can have multiple bulk discounts in the system.
+  - Merchants can have many discounts, discounts belong to a merchant
+
 1. When a user adds enough value or quantity of a single item to their cart, the bulk discount will automatically show up on the cart page.
+  - Check
+
 1. A bulk discount from one merchant will only affect items from that merchant in the cart.
+  - Check
+
 1. A bulk discount will only apply to items which exceed the minimum quantity specified in the bulk discount. (eg, a 5% off 5 items or more does not activate if a user is buying 1 quantity of 5 different items; if they raise the quantity of one item to 5, then the bulk discount is only applied to that one item, not all of the others as well)
+  - Check
+
 1. When there is a conflict between two discounts, the greater of the two will be applied.
+  - Check
+
 1. Final discounted prices should appear on the orders show page.
+
 
 Items: Belong to merchant, has many orders through order items, has many reviews
 Merchants: Has many items, has many orders through order items, has many users, ** has many discounts
@@ -17,7 +35,6 @@ Users: Belongs to a merchant, has many orders
 ** Discount: Belongs to a merchant
 
 Discount, one to many table
-
 
 1. As a merchant, I can click a link that will take me to all my discounts show page.
 
@@ -36,12 +53,6 @@ IT2 User Stories
 
 2. Next, your discount method is updated so it only occurs after a threshold of the same item is reached. 10% discount on 2 or more items. Once I meet or exceed this threshold, the discount applies. Once I exceed 5 of the same item, a 20% discount is applied. I see the discount reflected in the total, as well as a discount dollar amount listed. Other items from other merchants are not affected by this discount.
 
-
-
-
-
-
-
 3. Add items from two different merchants to your cart, exceeding the discount quantity. Verify that the discount only applies to items from the merchant with that discount.
 
 4. Add multiple items, under the discount threshold from the same merchant, and verify the discount does not apply.
@@ -50,23 +61,7 @@ IT2 User Stories
 
 6. Final discounted price should show on the order show page.
 
-
-
-
-
-
-
-
-
 methods
 - eligible discount for that item, meets quantity
 - compare subtotals of items, and return the lowest(highest discount)
 - logic to apply discount to only items in the cart who's id's match an item.merchant that has a discount. filter
-
-
-
-default discount
-once hits threshold, then apply new discount
-max_discount
-
-comparing subtotals using subtotal_of
