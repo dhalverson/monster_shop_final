@@ -52,8 +52,22 @@ RSpec.describe "As a user" do
       end
     end
 
+    it 'Merchant discounts do not apply to other merchant items in the cart' do
+      visit("/items/#{@hippo.id}")
+      click_button('Add to Cart')
+      
+      visit('/cart')
+      within "#item-#{@ogre.id}" do
+        4.times do
+          click_button('More of This!')
+        end
+      end
 
-
-
+      within "#item-#{@hippo.id}" do
+        expect(page).to have_content('Price: $50.00')
+        expect(page).to have_content('Quantity: 1')
+        expect(page).to have_content('Subtotal: $50.00')
+      end
+    end
   end
 end
