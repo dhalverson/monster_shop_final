@@ -16,5 +16,5 @@
 @order_1 = @user.orders.create!(status: "pending")
 @order_item_1 = @order_1.order_items.create!(item: @ogre, price: @ogre.price, quantity: 1, fulfilled: true)
 @order_item_2 = @order_1.order_items.create!(item: @giant, price: @giant.price, quantity: 5, fulfilled: true)
-@discount_1 = @megan.discounts.create!(discount: 20, item_quantity: 2)
-@discount_2 = @megan.discounts.create!(discount: 30, item_quantity: 5)
+@discount_1 = @megan.discounts.create!(discount: 10, item_quantity: 2)
+@discount_2 = @megan.discounts.create!(discount: 20, item_quantity: 5)
