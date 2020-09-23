@@ -66,5 +66,8 @@ RSpec.describe "As a merchant employee" do
 
     expect(page).to have_content('Success, a new discount has been added!')
     expect(current_path).to eq('/merchant/discounts')
+    expect(page).to have_content('25% off')
+    expect(page).to have_content('Percentage: 25%')
+    expect(page).to have_content('Item Quantity: 15')
   end
 end
