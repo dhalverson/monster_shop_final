@@ -4,4 +4,4 @@
 <p>Discount Items Required: <%= @discount.item_quantity %></p>
 
 <%= link_to "Edit Discount", "/merchant/discounts/#{@discount.id}/edit" %>
-<%= link_to "Delete Discount", "/merchant/discounts/#{@discount.id}/destroy", method: :delete %>
+<%= link_to 'Delete Discount', "/merchant/discounts/#{@discount.id}", method: :delete %>

@@ -1,3 +1,5 @@
+require_relative 'cart'
+
 class Item < ApplicationRecord
   belongs_to :merchant
   has_many :order_items
@@ -28,5 +30,13 @@ class Item < ApplicationRecord
 
   def average_rating
     reviews.average(:rating)
+  end
+
+  def minimum_discount_quantity
+    merchant.discounts.minimum(:item_quantity)
+  end
+
+  def highest_discount(cart_item_count)
+    merchant.discounts.where('discounts.item_quantity <= ?', cart_item_count).order(:discount).last
   end
 end
